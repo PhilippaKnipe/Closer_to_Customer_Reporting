@@ -1,0 +1,43 @@
+table 'Wider Team'
+	lineageTag: e81390ad-6928-42a0-99f0-704b76df4368
+
+	column 'Colleague Name'
+		dataType: string
+		lineageTag: d45d96dc-e63d-4c42-8b01-e435a42e4a20
+		summarizeBy: none
+		sourceColumn: Colleague Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: aced63bd-9cdb-4b7c-87e8-86e62b3a09e2
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shifts to Book'
+		dataType: int64
+		formatString: 0
+		lineageTag: 871a5c20-c765-4b10-b78e-6268034b5a25
+		summarizeBy: none
+		sourceColumn: Shifts to Book
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Wider Team' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://mnscorp.sharepoint.com/sites/RetailAnalytics/Shared%20Documents/Team/CTC/Wider%20Team.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Colleague Name", type text}, {"Team", type text}, {"Shifts to Book", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

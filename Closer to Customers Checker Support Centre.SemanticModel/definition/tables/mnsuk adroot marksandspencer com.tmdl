@@ -1,0 +1,71 @@
+table 'mnsuk adroot marksandspencer com'
+	lineageTag: 7944d1d9-73b8-4084-b131-f8055cbd715b
+
+	column UPN
+		dataType: string
+		lineageTag: 682d4900-0c66-4908-9b5e-eefbec270d25
+		summarizeBy: none
+		sourceColumn: UPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Key Person'
+		dataType: int64
+		formatString: 0
+		lineageTag: 20e0fe0e-6201-4d56-84d1-f25a252cdb65
+		summarizeBy: sum
+		sourceColumn: Key Person
+
+		annotation SummarizationSetBy = Automatic
+
+	column Domain
+		dataType: string
+		lineageTag: e1b0b2f6-ce07-4c12-94c5-6f48da7c9db8
+		summarizeBy: none
+		sourceColumn: Domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Duplicate Check' =
+			
+			
+			
+			CALCULATE(COUNTROWS('mnsuk adroot marksandspencer com'), FILTER(ALLSELECTED('mnsuk adroot marksandspencer com'), 'mnsuk adroot marksandspencer com'[UPN] = EARLIER( 'mnsuk adroot marksandspencer com'[UPN])))
+		dataType: int64
+		formatString: 0
+		lineageTag: 224c3a5b-8521-47b9-bada-1bc3ced12ae9
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Associated Payroll ID' = related(pl_ctc_colleagues[payroll_id])
+		formatString: 0
+		lineageTag: f10bc6fd-a220-4703-ba4b-3dd20577c6f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'mnsuk adroot marksandspencer com' = m
+		mode: import
+		queryGroup: PL
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"c30d702c-4c21-4279-974c-1f2876d4404d" = Source{[workspaceId="c30d702c-4c21-4279-974c-1f2876d4404d"]}[Data],
+				    #"a8cc3504-a500-433a-ac92-15e6d15e8e3a" = #"c30d702c-4c21-4279-974c-1f2876d4404d"{[dataflowId="a8cc3504-a500-433a-ac92-15e6d15e8e3a"]}[Data],
+				    #"mnsuk adroot marksandspencer com1" = #"a8cc3504-a500-433a-ac92-15e6d15e8e3a"{[entity="mnsuk adroot marksandspencer com"]}[Data],
+				    #"Added Custom" = Table.AddColumn(#"mnsuk adroot marksandspencer com1", "Domain", each "Support Centre"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"user.userPrincipalName", "UPN"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"displayName", "organizationalPerson.title", "person.cn", "mailRecipient.department", "distinguishedName", "check point 1", "Check Point 2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"Key Person", Int64.Type}}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Changed Type", {"Key Person"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Errors", {"Key Person"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Duplicates", each ([UPN] <> ""))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

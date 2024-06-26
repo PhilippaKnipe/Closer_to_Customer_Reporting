@@ -1,0 +1,91 @@
+table P_DIM_Security_Regional
+	lineageTag: 28900efe-fa27-429a-adfe-e09e2bbd10c4
+
+	column displayName
+		dataType: string
+		lineageTag: 536acf16-0ee0-4929-8667-540aaafe54af
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'user.userPrincipalName'
+		dataType: string
+		lineageTag: 305dee95-1fed-45d9-97e2-2ac7c59da8e6
+		summarizeBy: none
+		sourceColumn: user.userPrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PeopleSoft.Department Description'
+		dataType: string
+		lineageTag: d8a6e639-8f36-4d8e-b4a0-0758275ce7af
+		summarizeBy: none
+		sourceColumn: PeopleSoft.Department Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.SITE_NO'
+		dataType: string
+		lineageTag: 9d6f3c3b-e367-47ec-bd45-f120f1cbe217
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.SITE_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.SITE_NAME'
+		dataType: string
+		lineageTag: b5b1647c-2b4b-483d-9486-781ea28eb64a
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.SITE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.REGION'
+		dataType: string
+		lineageTag: 2b5b91e4-180d-4079-8286-ecd613cba414
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.DIVISION'
+		dataType: string
+		lineageTag: 19781685-18bb-4f92-bde3-949465216ec9
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.FORMAT'
+		dataType: string
+		lineageTag: 7c9e3947-326b-47b5-aca6-048ea1673bb1
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.FORMAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Accessibility PeopleSoft'
+		dataType: string
+		lineageTag: 755aaa56-573c-429f-87ca-1ce2dd2b1109
+		summarizeBy: none
+		sourceColumn: User Accessibility PeopleSoft
+
+		annotation SummarizationSetBy = Automatic
+
+	partition P_DIM_Security_Regional-a5673575-4ec8-4dec-8e6e-91554e6a765d = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows([]),
+				    #"c30d702c-4c21-4279-974c-1f2876d4404d" = Source{[workspaceId="c30d702c-4c21-4279-974c-1f2876d4404d"]}[Data],
+				    #"a8cc3504-a500-433a-ac92-15e6d15e8e3a" = #"c30d702c-4c21-4279-974c-1f2876d4404d"{[dataflowId="a8cc3504-a500-433a-ac92-15e6d15e8e3a"]}[Data],
+				    #"Final RD Security" = #"a8cc3504-a500-433a-ac92-15e6d15e8e3a"{[entity="Final RD Security"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(#"Final RD Security",{"displayName", "user.userPrincipalName", "PeopleSoft.Department Description", "DM DIM_SITE.SITE_NO", "DM DIM_SITE.SITE_NAME", "DM DIM_SITE.REGION", "DM DIM_SITE.DIVISION", "DM DIM_SITE.FORMAT", "User Accessibility PeopleSoft"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each not Text.Contains([user.userPrincipalName], "Loughlin")),
+				    #"Appended Query" = Table.Combine({#"Filtered Rows", #"to join"})
+				in
+				    #"Appended Query"
+
+	annotation PBI_ResultType = Table
+

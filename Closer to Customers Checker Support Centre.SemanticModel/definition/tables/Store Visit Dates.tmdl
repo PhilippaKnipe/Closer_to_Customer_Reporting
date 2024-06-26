@@ -1,0 +1,176 @@
+table 'Store Visit Dates'
+	lineageTag: 2f4dd636-c7e3-4a3d-b89c-42e923514dec
+
+	column FileSystemObjectType
+		dataType: string
+		lineageTag: 8a718099-93e0-495e-96a8-d495a305202a
+		summarizeBy: none
+		sourceColumn: FileSystemObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: string
+		lineageTag: 1993a0a1-f691-4013-8c9b-f0fe21ce647b
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUri
+		dataType: string
+		lineageTag: 7f4b8141-e955-4bff-97a5-93d16fa19458
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUri
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUrl
+		dataType: string
+		lineageTag: d51d6c69-b94b-4e6d-a94c-5eee37ce0666
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID.1'
+		dataType: string
+		lineageTag: e323d570-bc68-4070-afda-cb9be8f35d97
+		summarizeBy: none
+		sourceColumn: ID.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContentTypeId
+		dataType: string
+		lineageTag: bf575e57-112b-4d9c-bcf7-420d98ddccb5
+		summarizeBy: none
+		sourceColumn: ContentTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 7b90c1eb-b783-4ee4-88a5-7f371cc39d66
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modified
+		dataType: string
+		lineageTag: c5c8f002-c5e9-41ea-8a4b-5a33fd1e6be3
+		summarizeBy: none
+		sourceColumn: Modified
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created
+		dataType: string
+		lineageTag: 0b0890d7-a673-4f18-9004-2eb9d8a346a7
+		summarizeBy: none
+		sourceColumn: Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column AuthorId
+		dataType: string
+		lineageTag: 3461a6a4-a4c4-4083-9547-2cae82939641
+		summarizeBy: none
+		sourceColumn: AuthorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EditorId
+		dataType: string
+		lineageTag: dde1a942-58e4-4043-a93f-5f950efefd10
+		summarizeBy: none
+		sourceColumn: EditorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OData__UIVersionString
+		dataType: string
+		lineageTag: 2073aa63-0aa1-4994-8f5f-572313374db4
+		summarizeBy: none
+		sourceColumn: OData__UIVersionString
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attachments
+		dataType: string
+		lineageTag: 878a86bb-c28f-410e-a0ad-566e671f18b9
+		summarizeBy: none
+		sourceColumn: Attachments
+
+		annotation SummarizationSetBy = Automatic
+
+	column GUID
+		dataType: string
+		lineageTag: 2c063eb5-e622-4871-a563-4a69a225d176
+		summarizeBy: none
+		sourceColumn: GUID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceAssetId
+		dataType: string
+		lineageTag: fc737ffa-bba2-49ef-9f92-432dc89e1574
+		summarizeBy: none
+		sourceColumn: ComplianceAssetId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date'
+		dataType: string
+		lineageTag: 8534fe1a-ff6a-4b27-ab4f-2298f43cd13b
+		summarizeBy: none
+		sourceColumn: Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Date'
+		dataType: string
+		lineageTag: 9ba313de-788e-4476-84e0-af8843d88abe
+		summarizeBy: none
+		sourceColumn: End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingType
+		dataType: string
+		lineageTag: 8e5a30ec-a71a-47f4-9dc4-caa8514edcbc
+		summarizeBy: none
+		sourceColumn: BookingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingInformation
+		dataType: string
+		lineageTag: 37ca8edf-2d0d-4b6f-85ee-1e59d11c6424
+		summarizeBy: none
+		sourceColumn: BookingInformation
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingDisplayName
+		dataType: string
+		lineageTag: d5e66e44-a3cf-43f4-a466-34098a28b314
+		summarizeBy: none
+		sourceColumn: BookingDisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Store Visit Dates-cb396b22-f574-4549-b7dd-f5e080484712' = m
+		mode: import
+		queryGroup: 'Fact Queries'
+		source =
+				let
+				    Source = SharePoint.Tables("https://mnscorp.sharepoint.com/sites/StoreAllys", [Implementation=null, ApiVersion=15]),
+				    #"d692bf2c-e090-4bd2-b5bc-a6b7dd296e04" = Source{[Id="d692bf2c-e090-4bd2-b5bc-a6b7dd296e04"]}[Items],
+				    #"Renamed Columns" = Table.RenameColumns(#"d692bf2c-e090-4bd2-b5bc-a6b7dd296e04",{{"ID", "ID.1"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

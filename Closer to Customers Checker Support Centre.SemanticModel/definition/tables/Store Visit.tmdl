@@ -1,0 +1,404 @@
+table 'Store Visit'
+	lineageTag: c7a9ff99-fc5d-411a-80b2-9209c7d0783a
+
+	column FileSystemObjectType
+		dataType: string
+		lineageTag: 88578328-2e71-4f7d-964a-d54bddf51fa3
+		summarizeBy: none
+		sourceColumn: FileSystemObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: string
+		lineageTag: 3bd824e7-7fa7-4d68-8d6b-6b598348fccf
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUri
+		dataType: string
+		lineageTag: b82af388-83a2-4692-a00b-2bf138e947f5
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUri
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUrl
+		dataType: string
+		lineageTag: 81d21905-eeff-4ed6-8557-0343dd1d0dc8
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID 2'
+		dataType: string
+		lineageTag: ae69484d-dfd1-4665-b27a-1fd45abe3954
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContentTypeId
+		dataType: string
+		lineageTag: 71473372-b66f-4dd9-87b3-381839582627
+		summarizeBy: none
+		sourceColumn: ContentTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 506a4148-4e33-4d50-82ec-6bf4fdb1514a
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 30e1b64c-9b20-4453-bfe0-f37a09d00b3b
+		summarizeBy: none
+		sourceColumn: Modified
+
+		variation Variation
+			isDefault
+			relationship: 219237f1-6f01-4afc-809e-20cd4e1177aa
+			defaultHierarchy: LocalDateTable_dd96f399-c4ed-444c-af0e-7fb9ccc126b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3eca9377-2937-4aab-9d08-e3fa30ac25d3
+		summarizeBy: none
+		sourceColumn: Created
+
+		variation Variation
+			isDefault
+			relationship: c7c0a80e-730c-4e4a-8c20-422462552653
+			defaultHierarchy: LocalDateTable_04ce2291-1dec-4eb2-a5e8-7c54c5663ea0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AuthorId
+		dataType: string
+		lineageTag: c32622f7-3328-448d-bed5-d3663d628558
+		summarizeBy: none
+		sourceColumn: AuthorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EditorId
+		dataType: string
+		lineageTag: fe9cd0ce-1699-441c-8b44-9f8b1612f04c
+		summarizeBy: none
+		sourceColumn: EditorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OData__UIVersionString
+		dataType: string
+		lineageTag: 0b8c37da-6c21-4491-9bd1-83d5d4b9ebe8
+		summarizeBy: none
+		sourceColumn: OData__UIVersionString
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attachments
+		dataType: string
+		lineageTag: 77b321c5-df40-4435-bdc8-ae0a2e6d4f8a
+		summarizeBy: none
+		sourceColumn: Attachments
+
+		annotation SummarizationSetBy = Automatic
+
+	column GUID
+		dataType: string
+		lineageTag: 5d9d7271-2d90-462d-9726-0c18ec5744e0
+		summarizeBy: none
+		sourceColumn: GUID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceAssetId
+		dataType: string
+		lineageTag: bfd01fbe-d2f3-41df-b917-e95c0954e0be
+		summarizeBy: none
+		sourceColumn: ComplianceAssetId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name of VisitorId'
+		dataType: string
+		lineageTag: 3acb7b4e-6400-435b-a2f5-70e52079878e
+		summarizeBy: none
+		sourceColumn: Name of VisitorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name of VisitorStringId'
+		dataType: string
+		lineageTag: f80076c3-5fd3-4046-ab6f-4f79cfb4a2b0
+		summarizeBy: none
+		sourceColumn: Name of VisitorStringId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		dataType: string
+		lineageTag: 648682ae-4ad5-4d9a-a7ec-500039cc538a
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Visit Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d18a9460-2b9f-48b3-a25e-3a6469e9796d
+		summarizeBy: none
+		sourceColumn: Visit Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Status
+		dataType: string
+		lineageTag: 7b16041e-6944-4573-b549-45a0c25894c1
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 1bfad4db-1524-438e-9494-18030f87d872
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreName
+		dataType: string
+		lineageTag: 184c6dcf-1040-4bd6-86fd-39742a7837a3
+		summarizeBy: none
+		sourceColumn: MnS_StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreID
+		dataType: string
+		lineageTag: b991edec-52f7-442c-bfc5-a4fe93d4a345
+		summarizeBy: none
+		sourceColumn: MnS_StoreID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_VisitorEmail
+		dataType: string
+		lineageTag: 22014cdf-cb65-4d9d-a934-67fdb4147719
+		summarizeBy: none
+		sourceColumn: MnS_VisitorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Helper Details'
+		dataType: string
+		lineageTag: 74507085-c658-4452-9766-09d5503ca7dd
+		summarizeBy: none
+		sourceColumn: Helper Details
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Helper Experience'
+		dataType: string
+		lineageTag: 6484bd44-b231-4b3a-b3c7-ef4e373df34e
+		summarizeBy: none
+		sourceColumn: Helper Experience
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreVisit_Attendance
+		dataType: int64
+		formatString: 0
+		lineageTag: ffee3c7e-59e6-466b-82ae-fa6dbfc74ef0
+		summarizeBy: none
+		sourceColumn: MnS_StoreVisit_Attendance
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_Store_Region
+		dataType: string
+		lineageTag: 78765c5a-7a49-4dbf-aa64-1b6a4e9fb7f8
+		summarizeBy: none
+		sourceColumn: MnS_Store_Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_Manager_Feedback
+		dataType: string
+		lineageTag: 890ffedc-207d-458a-bbce-88c51e78032a
+		summarizeBy: none
+		sourceColumn: MnS_Manager_Feedback
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreManagementExperience
+		dataType: int64
+		formatString: 0
+		lineageTag: c6239dc8-58bc-42b3-8a6c-3a5ffd96d513
+		summarizeBy: none
+		sourceColumn: StoreManagementExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingType
+		dataType: string
+		lineageTag: 4e0cf103-ed9c-4894-b69b-69b7d5fbb6c6
+		summarizeBy: none
+		sourceColumn: BookingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TillExperience
+		dataType: string
+		lineageTag: 1b654323-664b-4618-adc4-da23a008232f
+		summarizeBy: none
+		sourceColumn: TillExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCOTExperience
+		dataType: string
+		lineageTag: c74d0e3c-2839-49d8-afb9-cad6e6a3a1b7
+		summarizeBy: none
+		sourceColumn: SCOTExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoneywellExperience
+		dataType: string
+		lineageTag: f5245d75-e2e6-44ee-80bd-6d7b2f145dfc
+		summarizeBy: none
+		sourceColumn: HoneywellExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorePreferenceAreas
+		dataType: string
+		lineageTag: 51297dca-31f4-47c1-9392-482b0aadf267
+		summarizeBy: none
+		sourceColumn: StorePreferenceAreas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Colleague Name'
+		dataType: string
+		lineageTag: 9437414d-ea47-4894-8fec-aff3d31e9bd7
+		summarizeBy: none
+		sourceColumn: Colleague Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Email Suffix'
+		dataType: string
+		lineageTag: 990dfc01-984f-41ef-ac5e-2a229d35436b
+		summarizeBy: none
+		sourceColumn: Email Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Author Name'
+		dataType: string
+		lineageTag: 60e4da94-d76f-4801-9225-3d3ce8b1992f
+		summarizeBy: none
+		sourceColumn: Author Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Booking Reminder'
+		dataType: string
+		lineageTag: 6ce47cde-4827-4968-bc9d-13df0b410d10
+		summarizeBy: none
+		sourceColumn: Booking Reminder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reminder Status'
+		dataType: string
+		lineageTag: 02a8c7ad-17ef-42c5-a8a1-a8b9eab37fb9
+		summarizeBy: none
+		sourceColumn: Reminder Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Induction
+		dataType: string
+		lineageTag: d040c159-7a86-40bf-a869-eced4bdcf513
+		summarizeBy: none
+		sourceColumn: Induction
+
+		annotation SummarizationSetBy = Automatic
+
+	column Booked? = IF('Store Visit'[Status]="Booked",1,0)
+		dataType: int64
+		formatString: 0
+		lineageTag: 834629d2-04c4-419f-bd80-baf346cd3712
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Associated BU' = related(pl_ctc_colleagues[Level3])
+		dataType: string
+		lineageTag: f6afa9d4-788d-4c4c-b236-daf54cfbad02
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Associated MyHR Email' =
+			
+			
+			related('pl_ctc_colleagues'[EmployeeWorkEmail])
+			//LOOKUPVALUE(pl_ctc_colleagues[EmployeeWorkEmail],pl_ctc_colleagues[EmployeeWorkEmail],'Store Visit'[MnS_VisitorEmail])
+		dataType: string
+		lineageTag: f61876c8-0a9d-40a3-a574-7cc0b0810170
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Associated Line Manager' = related(pl_ctc_colleagues[LM])
+		dataType: string
+		lineageTag: c2addc7d-b714-4e52-9773-35517e7f19f4
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Store Visit-0885c587-61ef-4996-b649-0bf615f81c5d' = m
+		mode: import
+		queryGroup: 'Fact Queries'
+		source =
+				let
+				    Source = SharePoint.Tables("https://mnscorp.sharepoint.com/sites/StoreAllys", [Implementation=null, ApiVersion=15]),
+				    #"dd4a8bc4-6c41-4d79-a97b-4457ae951514" = Source{[Id="dd4a8bc4-6c41-4d79-a97b-4457ae951514"]}[Items],
+				    #"Extracted Colleague Name" = Table.AddColumn(#"dd4a8bc4-6c41-4d79-a97b-4457ae951514", "Colleague Name", each Record.Field([Name of Visitor], "FirstName")&" "&Record.Field([Name of Visitor], "LastName")),
+				    #"Extracted Author Name" = Table.AddColumn(#"Extracted Colleague Name", "Author Name", each Record.Field([Author], "FirstName")&" "&Record.Field([Author], "LastName")),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Extracted Author Name",{{"Visit Date", type date}, {"Modified", type datetime}, {"Created", type datetime}}),
+				    #"Inserted Text After Delimiter" = Table.AddColumn(#"Changed Type", "Email Suffix", each Text.AfterDelimiter([MnS_VisitorEmail], "@"), type text),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Inserted Text After Delimiter",{{"StoreManagementExperience", Int64.Type}, {"MnS_StoreVisit_Attendance", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

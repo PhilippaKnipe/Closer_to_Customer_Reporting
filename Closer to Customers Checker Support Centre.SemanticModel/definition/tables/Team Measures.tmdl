@@ -1,0 +1,39 @@
+table 'Team Measures'
+	lineageTag: 437b2adb-fb2c-4899-ad04-6613a3a49fa9
+
+	measure 'Days booked' = CALCULATE(SUM('Store Visit'[Booked?]),lu_calendar[fiscal_year]=2024)
+		formatString: 0
+		lineageTag: ff99e218-e6c7-4715-bc93-8166f0db5705
+
+	measure '% Booked' = DIVIDE([Days booked], SUM('Wider Team'[Shifts to Book]),0)
+		formatString: 0%;-0%;0%
+		lineageTag: 9dfb48d9-b4bd-41fe-8192-5b3575c55369
+
+	measure 'Total Shifts to Book' = SUM('Wider Team'[Shifts to Book]) * DISTINCTCOUNT('Wider Team'[Colleague Name])
+		formatString: 0
+		lineageTag: b123b2bb-6751-42d2-bf42-2b1912bae458
+
+	measure Shifts = SUM('Wider Team'[Shifts to Book])
+		formatString: 0
+		lineageTag: 480d6266-fccd-451e-9a61-aa4d86e7f264
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: 269cb040-3013-4415-9897-a0b5d9dc71a3
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Team Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

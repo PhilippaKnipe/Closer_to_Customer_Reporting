@@ -1,0 +1,41 @@
+table lu_store_additions
+	isHidden
+	lineageTag: 55e9dd3c-b024-4098-8ee4-b7f5ec16d822
+
+	column StoreID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 48aa0246-da3e-42f8-8878-8d04977f0ddf
+		summarizeBy: count
+		sourceColumn: StoreID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		isHidden
+		lineageTag: 02a22ede-7a9c-47e0-9b08-cf173b92d7c4
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition lu_store_additions-c211d3de-18af-4b85-8099-35e6f334ae84 = m
+		mode: import
+		queryGroup: 'Reference Data'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfLMK0ktykssyczPS8xRCC7JL0pVitWJVjICyrkVJeYlZ2QWp8LEYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [StoreID = _t, StoreName = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"StoreID", Int64.Type}, {"StoreName", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,540 @@
+table lu_calendar
+	lineageTag: 3f94e323-1dca-41c3-b5cc-74d00d10a74e
+
+	column calendar_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ff8d543-6e0c-4932-b4eb-a45a5545c9ea
+		summarizeBy: sum
+		sourceColumn: calendar_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 12499292-8a9c-4c8f-9985-a29bac0589ce
+		summarizeBy: sum
+		sourceColumn: week_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column natural_date_dte
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2d97cc1c-3c27-4a73-99ce-9ab701b9f948
+		summarizeBy: none
+		sourceColumn: natural_date_dte
+
+		variation Variation
+			isDefault
+			relationship: 68eead28-1d62-45dd-bb17-c28a442ce6cb
+			defaultHierarchy: LocalDateTable_88ddf0f3-8124-4bcf-ad24-9071986ac9d5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column day_of_the_week
+		dataType: string
+		lineageTag: 39613873-4e0d-4f74-b87f-934f0edee47d
+		summarizeBy: none
+		sourceColumn: day_of_the_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_number_in_cal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ca98ca5-6d32-41a2-9f05-9bf3607da249
+		summarizeBy: sum
+		sourceColumn: day_number_in_cal_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_number_in_cal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: c3217107-76ac-4875-8b72-806b1c47339d
+		summarizeBy: sum
+		sourceColumn: day_number_in_cal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_number_in_fiscal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 177bcb61-8f6a-4a5a-b851-f3d75a886105
+		summarizeBy: sum
+		sourceColumn: day_number_in_fiscal_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_number_in_fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: c3eba583-dacd-4e18-8904-8afa930fcbde
+		summarizeBy: sum
+		sourceColumn: day_number_in_fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_day_in_week_ind
+		dataType: string
+		lineageTag: 22908aa8-bdf6-4cdf-97d7-b27c679110f3
+		summarizeBy: none
+		sourceColumn: last_day_in_week_ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_day_in_month_ind
+		dataType: string
+		lineageTag: 275e8493-032d-46e0-a3d1-cedf90d11468
+		summarizeBy: none
+		sourceColumn: last_day_in_month_ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_week
+		dataType: int64
+		formatString: 0
+		lineageTag: b2588ddf-1dae-44e3-adc2-dcbdae1d3b16
+		summarizeBy: sum
+		sourceColumn: cal_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_week_ending_dte
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9d55dba6-4344-40e1-8181-c18a93f1037b
+		summarizeBy: none
+		sourceColumn: cal_week_ending_dte
+
+		variation Variation
+			isDefault
+			relationship: 12c9c3fb-f37f-4070-aa7a-87062bf65526
+			defaultHierarchy: LocalDateTable_391d11d2-6cfd-46a2-8b84-6c4cb90cf1b7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_week_number
+		dataType: int64
+		formatString: 0
+		lineageTag: c207c4e6-cc69-41d2-8010-33374b892bcb
+		summarizeBy: sum
+		sourceColumn: cal_week_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 549e6a77-26cc-4d88-ab6a-cddd1fc2a095
+		summarizeBy: sum
+		sourceColumn: cal_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_month_name
+		dataType: string
+		lineageTag: ecf03885-7fbe-4a00-85a6-3c9e26d61522
+		summarizeBy: none
+		sourceColumn: cal_month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b2a89b8-31ce-4577-8aa6-f1bad361abf2
+		summarizeBy: sum
+		sourceColumn: cal_month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: cea6cdb7-2354-4abb-9989-71042a6b1eef
+		summarizeBy: sum
+		sourceColumn: cal_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_quarter_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 5490127b-4ebf-4a7a-a609-288952181266
+		summarizeBy: sum
+		sourceColumn: cal_quarter_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_half_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 55c081d3-1f42-4dc5-800b-e6e2b1e50a0c
+		summarizeBy: sum
+		sourceColumn: cal_half_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: ebe58b09-2992-4e53-829a-fc4bdd7b2e05
+		summarizeBy: sum
+		sourceColumn: cal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 1417d122-99e5-43a6-9e00-47e926ae584f
+		summarizeBy: sum
+		sourceColumn: fiscal_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_week_number
+		dataType: int64
+		formatString: 0
+		lineageTag: a09e9a61-eaf6-4729-894c-348296bcaa7a
+		summarizeBy: sum
+		sourceColumn: fiscal_week_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_week_ending_dte
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 90600dd7-be8d-4cb3-9d5a-f9c46218d150
+		summarizeBy: none
+		sourceColumn: fiscal_week_ending_dte
+
+		variation Variation
+			isDefault
+			relationship: 10ca0551-ab13-4637-bb04-15644bcb856c
+			defaultHierarchy: LocalDateTable_84dd4158-3a2c-49d1-a122-93e8b4eb7e36.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_week_lst_wk
+		dataType: int64
+		formatString: 0
+		lineageTag: 7596a9b3-92ca-4b5d-95f9-7aafa440dc33
+		summarizeBy: sum
+		sourceColumn: fiscal_week_lst_wk
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_week_lst_yr
+		dataType: int64
+		formatString: 0
+		lineageTag: c4a6e35e-a1bd-4b9a-b4ba-5a2189854407
+		summarizeBy: sum
+		sourceColumn: fiscal_week_lst_yr
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 9debbbe8-5307-4c10-b938-5549c28173ed
+		summarizeBy: sum
+		sourceColumn: fiscal_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_month_name
+		dataType: string
+		lineageTag: 48ac5fa1-e11c-4dc4-83b2-b78e96189b17
+		summarizeBy: none
+		sourceColumn: fiscal_month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 90e604f5-3d63-4aaa-87eb-6f830b837fe7
+		summarizeBy: sum
+		sourceColumn: fiscal_month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_month_lst_mth
+		dataType: int64
+		formatString: 0
+		lineageTag: 7666558e-4d90-45da-94d7-645aff33bcf5
+		summarizeBy: sum
+		sourceColumn: fiscal_month_lst_mth
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_month_lst_yr
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f7a2329-3c37-4b73-8ab8-ab2f90ee10c3
+		summarizeBy: sum
+		sourceColumn: fiscal_month_lst_yr
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: a10a3521-ebe3-4000-9e2c-5163e0d6c8f2
+		summarizeBy: sum
+		sourceColumn: fiscal_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_quarter_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d6c57de-4331-4537-add9-b78904d2ccfe
+		summarizeBy: sum
+		sourceColumn: fiscal_quarter_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_half_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 4da40155-7064-4819-a95f-fa0977e06e48
+		summarizeBy: sum
+		sourceColumn: fiscal_half_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: acbdb6c9-7d61-452d-9295-299262f1ae7e
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column holiday_ind
+		dataType: string
+		lineageTag: 10e6d286-9244-45aa-8972-a926108c2244
+		summarizeBy: none
+		sourceColumn: holiday_ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: string
+		lineageTag: bdeb358d-19c8-4faf-91d5-e27e936c8a3f
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column major_event
+		dataType: string
+		lineageTag: 3712bb9f-2319-495b-b2bf-0af212aee950
+		summarizeBy: none
+		sourceColumn: major_event
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_take_ind
+		dataType: string
+		lineageTag: 16677b6c-3d65-4f71-9594-2b7bcb868382
+		summarizeBy: none
+		sourceColumn: stock_take_ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_tsp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7ffdaecf-07e6-4b1e-9630-d50363efb16d
+		summarizeBy: none
+		sourceColumn: start_tsp
+
+		variation Variation
+			isDefault
+			relationship: 5544176a-e17a-455c-8b97-9b55970e4769
+			defaultHierarchy: LocalDateTable_1179efbd-2cc1-4543-95a1-cc01d29e000a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_tsp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6965b4bb-c877-4882-ac63-ea9e4db01b51
+		summarizeBy: none
+		sourceColumn: end_tsp
+
+		variation Variation
+			isDefault
+			relationship: 9a980dc1-67a1-4a02-a9e2-785658b28c2c
+			defaultHierarchy: LocalDateTable_478ce189-25ea-47a0-93c7-581d9c22cb6f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_ind
+		dataType: string
+		lineageTag: 93656aa4-b60f-4139-84e8-361742bc80d0
+		summarizeBy: none
+		sourceColumn: current_ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column batch_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ce9928d-4939-4bdb-b96b-a9c91d05459e
+		summarizeBy: sum
+		sourceColumn: batch_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column natural_date_last_dte
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 98aef923-8a51-4902-b223-cc21f4d604c1
+		summarizeBy: none
+		sourceColumn: natural_date_last_dte
+
+		variation Variation
+			isDefault
+			relationship: 1eb270e5-eed6-4647-b755-b793de829891
+			defaultHierarchy: LocalDateTable_4346428a-31d1-4b50-9954-e1f2a7ac3a66.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_quarter_lst_qtr
+		dataType: int64
+		formatString: 0
+		lineageTag: 412508ff-7a01-4fec-996b-f42d783c01fc
+		summarizeBy: sum
+		sourceColumn: fiscal_quarter_lst_qtr
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_half_year_lst_hyr
+		dataType: int64
+		formatString: 0
+		lineageTag: d4cab3d8-37c5-47d0-be15-f5a08ed604a8
+		summarizeBy: sum
+		sourceColumn: fiscal_half_year_lst_hyr
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year_lst_yr
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d07eee4-ea9e-4565-9d43-def049d9ee36
+		summarizeBy: sum
+		sourceColumn: fiscal_year_lst_yr
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_week_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ed3b580-47c7-4629-90e3-30dcefc33cc5
+		summarizeBy: sum
+		sourceColumn: comrcl_cal_week_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: a7a993f0-b037-42bb-9331-6d90b3830a1c
+		summarizeBy: sum
+		sourceColumn: comrcl_cal_month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_month_name
+		dataType: string
+		lineageTag: 4a99b70f-4dfb-4377-b707-7d0dcb48acd7
+		summarizeBy: none
+		sourceColumn: comrcl_cal_month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_half_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7aa4cd3a-620a-44e1-acb6-73b967495a79
+		summarizeBy: sum
+		sourceColumn: comrcl_cal_half_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: a66a8b02-63f8-44cc-b8a5-207b0182598a
+		summarizeBy: sum
+		sourceColumn: comrcl_cal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_cal_quarter_number
+		dataType: int64
+		formatString: 0
+		lineageTag: c26c62a8-4509-4cdb-b947-2b7265c46b8c
+		summarizeBy: sum
+		sourceColumn: comrcl_cal_quarter_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_day_number_in_cal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 825856fa-9586-4e36-abe0-b444714b0c4e
+		summarizeBy: sum
+		sourceColumn: comrcl_day_number_in_cal_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column comrcl_day_number_in_cal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fb6d783-b72d-4dde-969e-8ea3c9286616
+		summarizeBy: sum
+		sourceColumn: comrcl_day_number_in_cal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column legacy_season
+		dataType: string
+		lineageTag: 835940a6-cab2-421b-9726-0c79ed783055
+		summarizeBy: none
+		sourceColumn: legacy_season
+
+		annotation SummarizationSetBy = Automatic
+
+	column legacy_phase
+		dataType: string
+		lineageTag: 3388b30f-488e-4872-ace0-2a6aa0c2f72e
+		summarizeBy: none
+		sourceColumn: legacy_phase
+
+		annotation SummarizationSetBy = Automatic
+
+	partition lu_calendar-22014aa0-bbb7-4e51-93a8-39cb4417e1a4 = m
+		mode: import
+		queryGroup: 'Reference Data'
+		source =
+				let
+				    Source = Sql.Database("dta-eun-prod-sqlsrv-synapse-01.database.windows.net", "dta-eun-prod-datawarehouse-synapse-01"),
+				    analytics_trans_prod_lu_calendar = Source{[Schema="analytics_trans_prod",Item="lu_calendar"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(analytics_trans_prod_lu_calendar,{{"natural_date_dte", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [cal_year] > 2021)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+

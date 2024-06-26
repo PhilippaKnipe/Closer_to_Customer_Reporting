@@ -1,0 +1,19 @@
+role Div
+	modelPermission: read
+
+	tablePermission lu_store =
+			VAR upn = USERPRINCIPALNAME()
+			RETURN
+			lu_store[Division] =
+			LOOKUPVALUE (
+			    P_DIM_Security_Regional[DM DIM_SITE.DIVISION],
+			    P_DIM_Security_Regional[user.userPrincipalName], upn
+			)
+			    || lu_store[Division]
+			        = LOOKUPVALUE (
+			            P_DIM_Security_Regional[User Accessibility PeopleSoft],
+			            P_DIM_Security_Regional[user.userPrincipalName], upn
+			        ) && [Division] = "Value"
+
+	annotation PBI_Id = 26950b6f1a964e11a4050f96a283cf9b
+

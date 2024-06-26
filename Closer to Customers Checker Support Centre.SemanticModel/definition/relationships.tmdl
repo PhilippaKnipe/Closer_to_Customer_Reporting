@@ -1,0 +1,94 @@
+relationship a768c9d6-2deb-4be8-a609-ac05e00ee6f2
+	fromColumn: 'Store Visit'.MnS_StoreID
+	toColumn: MnsStores_Helper_Config.'Store ID'
+
+relationship eb4b9e87-a743-4f4a-ba41-73b761ef2244
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_store.OpeningDate
+	toColumn: LocalDateTable_6eac40cb-0ffc-4dec-a2f4-4c41ede731c4.Date
+
+relationship 66d2fd7f-8670-4639-babe-a3c32e958f20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_store.ClosingDate
+	toColumn: LocalDateTable_d8bf07ae-d481-4b39-8f0f-743fdb251a39.Date
+
+relationship 516251d7-ba09-46a4-868e-9d3f59106dc7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: MnsStores_Helper_Config.'Store ID'
+	toColumn: lu_store.StoreID
+
+relationship 219237f1-6f01-4afc-809e-20cd4e1177aa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Store Visit'.Modified
+	toColumn: LocalDateTable_dd96f399-c4ed-444c-af0e-7fb9ccc126b6.Date
+
+relationship c7c0a80e-730c-4e4a-8c20-422462552653
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Store Visit'.Created
+	toColumn: LocalDateTable_04ce2291-1dec-4eb2-a5e8-7c54c5663ea0.Date
+
+relationship 68eead28-1d62-45dd-bb17-c28a442ce6cb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.natural_date_dte
+	toColumn: LocalDateTable_88ddf0f3-8124-4bcf-ad24-9071986ac9d5.Date
+
+relationship 12c9c3fb-f37f-4070-aa7a-87062bf65526
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.cal_week_ending_dte
+	toColumn: LocalDateTable_391d11d2-6cfd-46a2-8b84-6c4cb90cf1b7.Date
+
+relationship 10ca0551-ab13-4637-bb04-15644bcb856c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.fiscal_week_ending_dte
+	toColumn: LocalDateTable_84dd4158-3a2c-49d1-a122-93e8b4eb7e36.Date
+
+relationship 5544176a-e17a-455c-8b97-9b55970e4769
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.start_tsp
+	toColumn: LocalDateTable_1179efbd-2cc1-4543-95a1-cc01d29e000a.Date
+
+relationship 9a980dc1-67a1-4a02-a9e2-785658b28c2c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.end_tsp
+	toColumn: LocalDateTable_478ce189-25ea-47a0-93c7-581d9c22cb6f.Date
+
+relationship 1eb270e5-eed6-4647-b755-b793de829891
+	joinOnDateBehavior: datePartOnly
+	fromColumn: lu_calendar.natural_date_last_dte
+	toColumn: LocalDateTable_4346428a-31d1-4b50-9954-e1f2a7ac3a66.Date
+
+relationship 3421657c-d25a-4d1c-9fbe-6fe803a4696e
+	fromColumn: 'Store Visit'.'Visit Date'
+	toColumn: lu_calendar.natural_date_dte
+
+relationship 13195fcc-95f6-49b7-9714-264e12285768
+	joinOnDateBehavior: datePartOnly
+	fromColumn: RefreshInformation.RefreshInformation
+	toColumn: LocalDateTable_f8f89969-cf1f-47d8-b043-fc1a48f46127.Date
+
+relationship 0a17c00b-d21a-449b-9fc8-f830e2009c6a
+	fromColumn: 'Store Visit'.StoreManagementExperience
+	toColumn: 'Experience  bridge'.StoreManagementExperience
+
+relationship 102b41c5-4dd3-41e5-b072-1fc72bcf29e3
+	fromColumn: 'Store Visit'.MnS_StoreVisit_Attendance
+	toColumn: 'Attended Bridge'.Attended
+
+relationship bc73b0c4-21d2-4ea7-a5ce-7effeed3c035
+	fromColumn: 'Store Visit'.'Colleague Name'
+	toColumn: 'Wider Team'.'Colleague Name'
+
+relationship 7409ab20-9a68-4ab8-994f-1a8e5ca0060e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Store Visit New'.Visit_Date_Adjusted
+	toColumn: LocalDateTable_fe55d6a9-83bf-4689-9a84-e6a69325a995.Date
+
+relationship ad201a1b-0768-487f-9b22-2b863310c407
+	fromColumn: 'Store Visit'.MnS_VisitorEmail
+	toColumn: pl_ctc_colleagues.EmployeeWorkEmail
+
+relationship 66416075-6834-4053-88da-e43827e66150
+	fromColumn: 'Store Visit'.Department
+	toColumn: 'Closer to Customer Department Details'.Department
+

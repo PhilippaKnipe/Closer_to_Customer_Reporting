@@ -1,0 +1,14 @@
+role Reg
+	modelPermission: read
+
+	tablePermission lu_store =
+			VAR upn = USERPRINCIPALNAME()
+			RETURN
+			lu_store[Region] =
+			LOOKUPVALUE (
+			    P_DIM_Security_Regional[DM DIM_SITE.REGION],
+			    P_DIM_Security_Regional[user.userPrincipalName], upn
+			)
+
+	annotation PBI_Id = 000f1268fe5b492c9db7fca99632c9e0
+

@@ -1,0 +1,102 @@
+table 'Closer to Customer Department Details'
+	lineageTag: 7ad17abd-53d9-4659-a6f0-c8b828e44d8b
+
+	column Department
+		dataType: string
+		lineageTag: 04cc466d-f38e-4b40-b837-155f38ba5cdb
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberofColleagueseligible
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a2e1821-6b38-486d-9497-ce9695b70145
+		summarizeBy: none
+		sourceColumn: NumberofColleagueseligible
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberofShiftsexpected
+		dataType: int64
+		formatString: #,0
+		lineageTag: ba9a76d8-7d87-4094-bc7e-42cb1059ef3b
+		summarizeBy: none
+		sourceColumn: NumberofShiftsexpected
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeakShiftTarget
+		dataType: int64
+		formatString: #,0
+		lineageTag: c4e2a850-d0d8-4d44-bd4c-a5143f08ee01
+		summarizeBy: none
+		sourceColumn: PeakShiftTarget
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeakColleagueTarget
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0acb9c00-8071-47f2-beef-d31243e8172f
+		summarizeBy: none
+		sourceColumn: PeakColleagueTarget
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU
+		dataType: string
+		lineageTag: cc491b01-a2be-4ffb-a6a1-010c88858bc2
+		summarizeBy: none
+		sourceColumn: BU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Shifts Calc' = ROUND(DIVIDE('Closer to Customer Department Details'[NumberofShiftsexpected],'Closer to Customer Department Details'[NumberofColleagueseligible]),0)
+		dataType: double
+		lineageTag: 685938d4-f3eb-4032-82b3-774e7bf265ea
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Peak Shifts Target Calc' = IF('Closer to Customer Department Details'[Total Shifts Calc]=7,'Closer to Customer Department Details'[Total Shifts Calc]-3,4)
+		dataType: double
+		lineageTag: 4013af83-ae72-4beb-a7d1-63c3a88f5572
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Remaining Shifts Calc' = 'Closer to Customer Department Details'[Total Shifts Calc]-'Closer to Customer Department Details'[Peak Shifts Target Calc]
+		dataType: double
+		lineageTag: 3c937021-9f16-4efe-ac9d-ca783e60b908
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Closer to Customer Department Details-648c1abf-6e96-4b24-8d97-2e99f91556fb' = m
+		mode: import
+		queryGroup: 'Fact Queries'
+		source =
+				let
+				    Source = SharePoint.Tables("https://mnscorp.sharepoint.com/sites/StoreAllys", [Implementation=null, ApiVersion=15]),
+				    #"1a946da6-dbe9-4751-8aab-6f85df390afe" = Source{[Id="1a946da6-dbe9-4751-8aab-6f85df390afe"]}[Items],
+				    #"Removed Other Columns" = Table.SelectColumns(#"1a946da6-dbe9-4751-8aab-6f85df390afe",{"Department","BU","PeakShiftTarget", "PeakColleagueTarget", "NumberofShiftsexpected", "NumberofColleagueseligible"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"NumberofColleagueseligible", Int64.Type}, {"NumberofShiftsexpected", Int64.Type}, {"PeakShiftTarget", Int64.Type}, {"PeakColleagueTarget", Int64.Type}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Changed Type",{"BU", "Department", "PeakShiftTarget", "PeakColleagueTarget", "NumberofShiftsexpected", "NumberofColleagueseligible"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

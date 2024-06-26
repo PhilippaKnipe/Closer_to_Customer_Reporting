@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Closer to Customers Checker Support Centre"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d5241176-2b82-4b22-b118-d3256870be40"
+  }
+}

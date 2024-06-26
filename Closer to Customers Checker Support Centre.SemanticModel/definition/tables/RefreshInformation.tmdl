@@ -1,0 +1,31 @@
+table RefreshInformation
+	lineageTag: 73196f60-178f-451c-8832-21c0cd789c7d
+
+	column RefreshInformation
+		dataType: dateTime
+		formatString: dd/mm/yy hh:nn
+		lineageTag: 3c39fb75-6c02-44b8-ac52-295e09f25c9f
+		summarizeBy: none
+		sourceColumn: RefreshInformation
+
+		variation Variation
+			isDefault
+			relationship: 13195fcc-95f6-49b7-9714-264e12285768
+			defaultHierarchy: LocalDateTable_f8f89969-cf1f-47d8-b043-fc1a48f46127.'Date Hierarchy'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition RefreshInformation-0c4640dc-28ce-4132-ae5d-b9faaf8b3aeb = m
+		mode: import
+		source =
+				let
+				    Source = DateTime.LocalNow()
+				in
+				    Source
+
+	annotation PBI_ResultType = DateTime
+

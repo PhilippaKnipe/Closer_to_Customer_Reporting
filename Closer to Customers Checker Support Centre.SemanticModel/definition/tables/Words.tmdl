@@ -1,0 +1,33 @@
+table Words
+	lineageTag: 908d6fc7-c42d-46d1-8685-19396baacdcf
+
+	column Words
+		dataType: string
+		lineageTag: 6bde6bde-3271-44e7-8036-98e4465a4875
+		summarizeBy: none
+		sourceColumn: Words
+
+		annotation SummarizationSetBy = Automatic
+
+	column no
+		dataType: int64
+		formatString: 0
+		lineageTag: c13e969c-a7ca-4c7f-8bc5-99d8065cc5f3
+		summarizeBy: sum
+		sourceColumn: no
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Words-eff3b8ac-5615-404b-8731-fdea6be27b7b = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("FcsxDsMgDEbhq/zynCHN0gOw9gaUwQKnoFCIsFGvn3R9n5739BLDVByt/1B2MGKvVfgzBamk9p7ruj0NbCYt3ay57EYLPSgsnlwt8UCWIbAOjlFUYVngalcZ/+imWv/KUPB53uNGIVw=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Words = _t, no = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Words", type text}, {"no", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

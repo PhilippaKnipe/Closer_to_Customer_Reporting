@@ -1,0 +1,88 @@
+table 'to join'
+	lineageTag: b21acde7-9af3-4899-87fa-664307483972
+
+	column displayName
+		dataType: string
+		lineageTag: 85830156-38b3-4eb3-a376-9e9b27988297
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'user.userPrincipalName'
+		dataType: string
+		lineageTag: c69c5cbf-bf5f-45d1-98cf-c964f852d6d2
+		summarizeBy: none
+		sourceColumn: user.userPrincipalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PeopleSoft.Department Description'
+		dataType: string
+		lineageTag: 6266b9cf-dfdf-45a9-a874-a8298cd3e5d5
+		summarizeBy: none
+		sourceColumn: PeopleSoft.Department Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.SITE_NO'
+		dataType: string
+		lineageTag: f5f3688d-6c85-472a-8112-96bcbe90f367
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.SITE_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.SITE_NAME'
+		dataType: string
+		lineageTag: c832ce4b-065e-471e-bfcc-e098b1b5bf77
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.SITE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.REGION'
+		dataType: string
+		lineageTag: b6a6c86d-9cfc-450c-aea6-9a1b3cfe178e
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.DIVISION'
+		dataType: string
+		lineageTag: 8374ae6b-0855-4bc1-bc92-b75c8af97143
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DM DIM_SITE.FORMAT'
+		dataType: string
+		lineageTag: 416f2557-3d85-4267-81ac-3095386acae9
+		summarizeBy: none
+		sourceColumn: DM DIM_SITE.FORMAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Accessibility PeopleSoft'
+		dataType: string
+		lineageTag: e9d531a0-07c3-4bd0-bb78-8ecb9469d5e1
+		summarizeBy: none
+		sourceColumn: User Accessibility PeopleSoft
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'to join-f28b46ee-1c91-4ad2-bd20-e7b591cb0786' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8skvTc/IyczTUQhILM1R0lECUXowUYfcvOLk/KICvbzUEqCcb0ypgYGRWbCCU2JetkJiXopCcGpRWWZyajFQEoj8XMOdHYNDfFxBbP+gEA8FVyAXxoGowWNGbCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [displayName = _t, user.userPrincipalName = _t, #"PeopleSoft.Department Description" = _t, #"DM DIM_SITE.SITE_NO" = _t, #"DM DIM_SITE.SITE_NAME" = _t, #"DM DIM_SITE.REGION" = _t, #"DM DIM_SITE.DIVISION" = _t, #"DM DIM_SITE.FORMAT" = _t, #"User Accessibility PeopleSoft" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"displayName", type text}, {"user.userPrincipalName", type text}, {"PeopleSoft.Department Description", type text}, {"DM DIM_SITE.SITE_NO", type text}, {"DM DIM_SITE.SITE_NAME", type text}, {"DM DIM_SITE.REGION", type text}, {"DM DIM_SITE.DIVISION", type text}, {"DM DIM_SITE.FORMAT", type text}, {"User Accessibility PeopleSoft", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

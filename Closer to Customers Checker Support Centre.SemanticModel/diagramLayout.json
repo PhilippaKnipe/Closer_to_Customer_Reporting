@@ -1,0 +1,282 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 210.76923076923077
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 389.46756999623597,
+            "y": 172.91409578839603
+          },
+          "nodeIndex": "MnsStores_Helper_Config",
+          "nodeLineageTag": "bfb99bec-8266-4cd5-9e0b-d19e3c845b54",
+          "size": {
+            "height": 104,
+            "width": 265.16580354762255
+          },
+          "zIndex": 13,
+          "expandedHeight": 640.78108283685367
+        },
+        {
+          "location": {
+            "x": 721.83180793716622,
+            "y": 730.173646934889
+          },
+          "nodeIndex": "Store Visit",
+          "nodeLineageTag": "c7a9ff99-fc5d-411a-80b2-9209c7d0783a",
+          "size": {
+            "height": 672.87024104052091,
+            "width": 378.44444444444457
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 29.369833313008769,
+            "y": 557.53318533094307
+          },
+          "nodeIndex": "lu_store",
+          "nodeLineageTag": "f64f1ada-4f7e-48d0-a34e-4f312533ea73",
+          "size": {
+            "height": 152,
+            "width": 219
+          },
+          "zIndex": 14,
+          "expandedHeight": 334
+        },
+        {
+          "location": {
+            "x": 722.25026006205894,
+            "y": 0
+          },
+          "nodeIndex": "Store Visit Dates",
+          "nodeLineageTag": "2f4dd636-c7e3-4a3d-b89c-42e923514dec",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 9,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1070.5905051184752,
+            "y": 429.40783317659253
+          },
+          "nodeIndex": "lu_calendar",
+          "nodeLineageTag": "3f94e323-1dca-41c3-b5cc-74d00d10a74e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 15,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 476.33768767870652,
+            "y": 0
+          },
+          "nodeIndex": "KeyMeasures",
+          "nodeLineageTag": "62a185b3-9ded-45ad-a651-d98e07e17d32",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 10,
+          "expandedHeight": 319.55555555555554
+        },
+        {
+          "location": {
+            "x": 969.17616969778692,
+            "y": 0.18563470454058972
+          },
+          "nodeIndex": "RefreshInformation",
+          "nodeLineageTag": "73196f60-178f-451c-8832-21c0cd789c7d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 11,
+          "expandedHeight": 165.11111111111109
+        },
+        {
+          "location": {
+            "x": 675.04473413148969,
+            "y": 314.48053122712918
+          },
+          "nodeIndex": "Closer to Customer Department Details",
+          "nodeLineageTag": "7ad17abd-53d9-4659-a6f0-c8b828e44d8b",
+          "size": {
+            "height": 104,
+            "width": 260.77395912988572
+          },
+          "zIndex": 12,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 257.82788373875428,
+            "y": 0
+          },
+          "nodeIndex": "lu_store_additions",
+          "nodeLineageTag": "55e9dd3c-b024-4098-8ee4-b7f5ec16d822",
+          "size": {
+            "height": 72,
+            "width": 206.22222222222223
+          },
+          "zIndex": 8,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 1449.5111111111112,
+            "y": 0
+          },
+          "nodeIndex": "Words",
+          "nodeLineageTag": "908d6fc7-c42d-46d1-8685-19396baacdcf",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 17,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 1183.0888753255208,
+            "y": 726.90936993424111
+          },
+          "nodeIndex": "Experience  bridge",
+          "nodeLineageTag": "7fd6251f-7350-4c2f-9ea5-22f046faa7a7",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 435.7555691189234,
+            "y": 1118.0204810453522
+          },
+          "nodeIndex": "Attended Bridge",
+          "nodeLineageTag": "a567913b-4536-41d7-94ff-37687f8f0960",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 16,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 1693.1333333333337,
+            "y": 0
+          },
+          "nodeIndex": "P_DIM_Security_Regional",
+          "nodeLineageTag": "28900efe-fa27-429a-adfe-e09e2bbd10c4",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 1210.088888888889,
+            "y": 0
+          },
+          "nodeIndex": "to join",
+          "nodeLineageTag": "b21acde7-9af3-4899-87fa-664307483972",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 1939.0997880780481,
+            "y": 0
+          },
+          "nodeIndex": "Team Measures",
+          "nodeLineageTag": "437b2adb-fb2c-4899-ad04-6613a3a49fa9",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 7,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 118.42107339926994
+          },
+          "nodeIndex": "Wider Team",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1648.5333333333335,
+            "y": 579.019100781535
+          },
+          "nodeIndex": "pl_ctc_colleagues",
+          "nodeLineageTag": "b9aeb29a-1593-428a-a04d-d7f472a13b97",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 1981.8666666666666,
+            "y": 169.93806790019585
+          },
+          "nodeIndex": "Store Visit New",
+          "nodeLineageTag": "6529c236-72dc-43da-9ee6-2c0dbcb66ff7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1599.2,
+            "y": 997.77955341803784
+          },
+          "nodeIndex": "mnsuk adroot marksandspencer com",
+          "nodeLineageTag": "7944d1d9-73b8-4084-b131-f8055cbd715b",
+          "size": {
+            "height": 312,
+            "width": 234
+          },
+          "zIndex": 3
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 65,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

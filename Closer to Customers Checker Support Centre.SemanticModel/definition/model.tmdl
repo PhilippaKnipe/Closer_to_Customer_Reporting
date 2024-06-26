@@ -1,0 +1,68 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Reference Data'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Fact Queries'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup PL
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation PBI_QueryOrder = ["Store Visit","Store Visit Dates","MnsStores_Helper_Config","lu_store","lu_calendar","KeyMeasures","RefreshInformation","Closer to Customer Department Details","lu_store_additions","Words","Experience  bridge","Attended Bridge","P_DIM_Security_Regional","to join","Wider Team","Team Measures","pl_ctc_colleagues","Store Visit New","mnsuk adroot marksandspencer com"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.130.930.0 (24.06)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Store Visit'
+ref table DateTableTemplate_4222de18-aa6b-42ce-bb82-99e27208b1cc
+ref table MnsStores_Helper_Config
+ref table lu_store
+ref table LocalDateTable_6eac40cb-0ffc-4dec-a2f4-4c41ede731c4
+ref table LocalDateTable_d8bf07ae-d481-4b39-8f0f-743fdb251a39
+ref table 'Store Visit Dates'
+ref table LocalDateTable_dd96f399-c4ed-444c-af0e-7fb9ccc126b6
+ref table LocalDateTable_04ce2291-1dec-4eb2-a5e8-7c54c5663ea0
+ref table lu_calendar
+ref table LocalDateTable_88ddf0f3-8124-4bcf-ad24-9071986ac9d5
+ref table LocalDateTable_391d11d2-6cfd-46a2-8b84-6c4cb90cf1b7
+ref table LocalDateTable_84dd4158-3a2c-49d1-a122-93e8b4eb7e36
+ref table LocalDateTable_1179efbd-2cc1-4543-95a1-cc01d29e000a
+ref table LocalDateTable_478ce189-25ea-47a0-93c7-581d9c22cb6f
+ref table LocalDateTable_4346428a-31d1-4b50-9954-e1f2a7ac3a66
+ref table KeyMeasures
+ref table RefreshInformation
+ref table LocalDateTable_f8f89969-cf1f-47d8-b043-fc1a48f46127
+ref table 'Closer to Customer Department Details'
+ref table lu_store_additions
+ref table Words
+ref table 'Experience  bridge'
+ref table 'Attended Bridge'
+ref table P_DIM_Security_Regional
+ref table 'to join'
+ref table 'Wider Team'
+ref table 'Team Measures'
+ref table pl_ctc_colleagues
+ref table 'Store Visit New'
+ref table 'mnsuk adroot marksandspencer com'
+ref table LocalDateTable_fe55d6a9-83bf-4689-9a84-e6a69325a995
+
+ref role CSO
+ref role Div
+ref role Reg
+ref role Store
+
+ref cultureInfo en-GB
+

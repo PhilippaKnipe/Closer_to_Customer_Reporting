@@ -1,0 +1,231 @@
+table KeyMeasures
+	lineageTag: 62a185b3-9ded-45ad-a651-d98e07e17d32
+
+	measure 'Number of Booked Shifts' =
+			
+			CALCULATE(distinctCOUNT('Store Visit'[Id]),'Store Visit'[Status]="Booked")
+		formatString: #,0
+		lineageTag: 6781805d-25e4-43df-b1fd-0d8b532a5b94
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "TotalForSelectedCategory"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Shift Hours Committed' =
+			
+			CALCULATE(8 * [Number of Booked Shifts],ALLSelected(lu_calendar[natural_date_dte]))
+		formatString: #,0
+		lineageTag: 422e212a-560f-4ef4-99ab-2547703bbd12
+
+		changedProperty = FormatString
+
+	measure 'Shift Rate' = CALCULATE([Number of Booked Shifts] / SUM('Closer to Customer Department Details'[NumberofShiftsexpected]))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: efb9dd0a-c8a4-4e64-a492-f24c8b6e8cc7
+
+		changedProperty = FormatString
+
+	measure 'Colleague Rate' = CALCULATE(DISTINCTCOUNT('Store Visit'[Colleague Name]) / SUM('Closer to Customer Department Details'[NumberofColleagueseligible]),'Store Visit'[Status]="Booked")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3b9dabd1-1a54-44ec-8f6b-bc22d8f383e8
+
+		changedProperty = FormatString
+
+	measure 'Peak Shift Rate' = CALCULATE([Number of Booked Shifts] / SUM('Closer to Customer Department Details'[PeakShiftTarget]))
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: 427f0453-7b0b-4c34-86d7-d8c4696b4584
+
+		changedProperty = FormatString
+
+	measure 'Peak Colleague Rate' = CALCULATE(DISTINCTCOUNT('Store Visit'[Colleague Name]) / SUM('Closer to Customer Department Details'[PeakColleagueTarget]))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 96ed6e5d-d310-43f7-9a67-ebf528ac6776
+
+		changedProperty = FormatString
+
+	measure 'Dynamic Button Text' = IF(HASONEVALUE(MnsStores_Helper_Config[AppLink]),Max(MnsStores_Helper_Config[AppLink]),"https://apps.powerapps.com/play/50e9f4f2-fd0a-4b9c-813d-706179ebeb4a")
+		lineageTag: 36070cec-d733-4ed0-b458-e8e4b2bd365b
+		dataCategory: WebUrl
+
+	measure 'Shifts Attended' =
+			
+			CALCULATE(COUNT('Store Visit'[Id]),'Store Visit'[Status]="Booked", 'Store Visit'[MnS_StoreVisit_Attendance]<>0)
+		formatString: 0
+		lineageTag: cb09f521-5667-4f18-9b82-95432dc8e011
+
+	measure 'Shifts Attended %' = DIVIDE([Shifts Attended],[Number of Booked Shifts])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c67bf49a-7333-414d-89d8-4a445f793cc2
+
+	measure 'Support Centre Colleagues' = DISTINCTCOUNT('Store Visit'[Colleague Name])
+		formatString: #,0
+		lineageTag: 4c967995-eb54-4ce4-a709-35f98e6fbf08
+
+	measure 'Colleagues Signed Up' = CALCULATE(DISTINCTCOUNT('Store Visit'[Colleague Name]),'Store Visit'[Status]="Booked")
+		formatString: #,0
+		lineageTag: 5deb298f-71f7-49bc-8ac9-bc7c644ad087
+
+	measure 'Number of Stores Supported' =
+			
+			CALCULATE(distinctcount('Store Visit'[MnS_StoreID]),'Store Visit'[Status]="Booked")
+		formatString: 0
+		lineageTag: 9a775492-4c67-4c35-abe4-45294bdae0cf
+
+	measure 'Logged In User' = USERPRINCIPALNAME()
+		lineageTag: bd9bfefb-d012-43a4-b7dc-aef8767a97d5
+
+	measure 'Line Manager of Logged in User' =
+			
+			//calculate(distinctcount(pl_ctc_colleagues[EmployeeName]),filter(pl_ctc_colleagues,pl_ctc_colleagues[EmployeeWorkEmail]=USERPRINCIPALNAME()))
+			
+			
+			calculate(min(pl_ctc_colleagues[LM]),filter(pl_ctc_colleagues,pl_ctc_colleagues[EmployeeWorkEmail]=USERPRINCIPALNAME()))
+		lineageTag: 129c0be4-2b2f-406b-9739-fb9d5d1c7537
+
+	measure 'Is the logged in user a line manager?' =
+			
+			// is their name in the LM column of the people table?
+			
+			var a = [Logged In User Name]
+			
+			var b =  calculate(countrows('pl_ctc_colleagues'),filter(pl_ctc_colleagues,pl_ctc_colleagues[LM]=a))
+			
+			return if(isblank(b),"No","Yes")
+		lineageTag: c6e9a5ea-4895-4684-a8c8-542f249229af
+
+	measure 'Logged In User Name' = ```
+			
+			//calculate(distinctcount(pl_ctc_colleagues[EmployeeName]),filter(pl_ctc_colleagues,pl_ctc_colleagues[EmployeeWorkEmail]=USERPRINCIPALNAME()))
+			
+			var a = calculate(min(pl_ctc_colleagues[EmployeeName]),filter(pl_ctc_colleagues,pl_ctc_colleagues[EmployeeWorkEmail]=USERPRINCIPALNAME()))
+			return trim(a)
+			
+			
+			```
+		lineageTag: b8903085-4edf-462b-b4ba-7b99705dddd3
+
+	measure 'Filter Context for My Team' =
+			
+			//if the logged in user is a line manager, show their line reports
+			// if the logged in user is not a line manager, show their peers
+			
+			if([Is the logged in user a line manager?]="Yes",[Logged In User Name],[Line Manager of Logged in User])
+		lineageTag: 8ae0de8d-d8f8-483b-947a-2edfa759cb4e
+
+	measure 'Colleagues Signed Up My Team' = ```
+			
+			
+			//calculate([Colleagues Signed Up],filter('pl_ctc_colleagues',pl_ctc_colleagues[LM]=[Filter Context for My Team]))
+			
+			var a = [Is the logged in user a line manager?]
+			var b = [Logged In User Name]
+			
+			return if(a="Yes",
+			// if the logged in user is a line manager, filter the store visit table to their name as associated line manager
+			calculate([Colleagues Signed Up],filter('Store Visit','Store Visit'[Associated Line Manager]=b)),
+			calculate([Colleagues Signed Up],filter('Store Visit','Store Visit'[Colleague Name]=b)))
+			
+			```
+		formatString: 0
+		lineageTag: b3b59ec7-0d5a-402b-add9-f0be8c32bc9d
+
+	measure 'Team of Logged in User' = ```
+			
+			
+			
+			var a = [Logged In User Name]
+			
+			return calculate(min('pl_ctc_colleagues'[department_name]),filter(pl_ctc_colleagues,pl_ctc_colleagues[EmployeeName]=a))
+			
+			
+			```
+		lineageTag: 72108a7b-95e7-47a8-bd4e-f43fd4bedc58
+
+	measure 'Card Title' =
+			
+			var a = [Is the logged in user a line manager?]
+			
+			return if(a="Yes",
+			CONCATENATE("Team Managed By"," "&[Filter Context for My Team]),
+			CONCATENATE("Shifts Booked By"," "&[Logged In User Name]))
+		lineageTag: 8a862935-bf18-44f5-9fc8-e8a9128a3894
+
+	measure 'Shift Hours Committed My Team' = ```
+			
+			//CALCULATE([Shift Hours Committed],filter('pl_ctc_colleagues',pl_ctc_colleagues[LM]=[Filter Context for My Team]))
+			
+			
+			var a = [Is the logged in user a line manager?]
+			var b = [Logged In User Name]
+			
+			return if(a="Yes",
+			// if the logged in user is a line manager, filter the store visit table to their name as associated line manager
+			calculate([Shift Hours Committed],filter('Store Visit','Store Visit'[Associated Line Manager]=b)),
+			calculate([Shift Hours Committed],filter('Store Visit','Store Visit'[Colleague Name]=b)))
+			
+			```
+		formatString: 0
+		lineageTag: dcb08d71-15ba-455c-a4cc-7d77f0ceffe6
+
+	measure 'Number of Booked Shifts My Team' = ```
+			
+			var a = [Is the logged in user a line manager?]
+			var b = [Logged In User Name]
+			
+			return if(a="Yes",
+			// if the logged in user is a line manager, filter the store visit table to their name as associated line manager
+			calculate([Number of Booked Shifts],filter('Store Visit','Store Visit'[Associated Line Manager]=b)),
+			calculate([Number of Booked Shifts],filter('Store Visit','Store Visit'[Colleague Name]=b)))
+			
+			
+			```
+		formatString: 0
+		lineageTag: 596b528b-fe05-482f-b75f-92b7ce8f09c0
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Number of Stores Supported My Team' = ```
+			
+			
+			//calculate([Number of Stores Supported],filter('pl_ctc_colleagues',pl_ctc_colleagues[LM]=[Filter Context for My Team]))
+			
+			var a = [Is the logged in user a line manager?]
+			var b = [Logged In User Name]
+			
+			return if(a="Yes",
+			// if the logged in user is a line manager, filter the store visit table to their name as associated line manager
+			calculate([Number of Stores Supported],filter('Store Visit','Store Visit'[Associated Line Manager]=b)),
+			calculate([Number of Stores Supported],filter('Store Visit','Store Visit'[Colleague Name]=b)))
+			
+			```
+		formatString: 0
+		lineageTag: f29027c7-9f4f-4a88-9131-b82132456721
+
+	measure 'Subtitle for Button' =
+			
+			var a = [Is the logged in user a line manager?]
+			return if(a="Yes","Information about the team that you manage","Information about your shifts")
+		lineageTag: 1fcf0663-a516-439a-8809-1b1f6988717c
+
+	column KeyMeasures
+		dataType: string
+		lineageTag: b28f6c25-4477-4cda-9d82-4f93953999dd
+		summarizeBy: none
+		sourceColumn: KeyMeasures
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KeyMeasures-fec8d585-ee61-440d-9363-78c4a4229282 = m
+		mode: import
+		source =
+				let
+				    Source = ""
+				in
+				    Source
+
+	annotation PBI_ResultType = Text
+

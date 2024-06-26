@@ -1,0 +1,128 @@
+table lu_store
+	lineageTag: f64f1ada-4f7e-48d0-a34e-4f312533ea73
+
+	column StoreID
+		dataType: int64
+		formatString: 0
+		lineageTag: 949c2840-8466-4255-bbe8-8b04b8bf1f67
+		summarizeBy: none
+		sourceColumn: StoreID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreName
+		dataType: string
+		lineageTag: 82213edd-e68c-45c3-9bec-e7e053dedaa4
+		summarizeBy: none
+		sourceColumn: StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: b2afcbcb-17f1-4aad-b2ba-752ac5b586c1
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: 0f5cc7be-6d3c-4a84-a6d1-7941aeaed230
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShapeofChain
+		dataType: string
+		lineageTag: f6898c25-057d-4706-9193-00bb633f4283
+		summarizeBy: none
+		sourceColumn: ShapeofChain
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: c6bdc6fe-6830-4341-b932-ff0401afae85
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostCode
+		dataType: string
+		lineageTag: 84607383-3b72-47f1-a672-59527acecfc6
+		summarizeBy: none
+		sourceColumn: PostCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpeningDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9686a99b-bb22-4136-955c-6c5d889b06b3
+		summarizeBy: none
+		sourceColumn: OpeningDate
+
+		variation Variation
+			isDefault
+			relationship: eb4b9e87-a743-4f4a-ba41-73b761ef2244
+			defaultHierarchy: LocalDateTable_6eac40cb-0ffc-4dec-a2f4-4c41ede731c4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClosingDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ba0c92b6-2121-4ae8-937c-b48289d405f4
+		summarizeBy: none
+		sourceColumn: ClosingDate
+
+		variation Variation
+			isDefault
+			relationship: 66d2fd7f-8670-4639-babe-a3c32e958f20
+			defaultHierarchy: LocalDateTable_d8bf07ae-d481-4b39-8f0f-743fdb251a39.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OrganisationName
+		dataType: string
+		lineageTag: 844c0d0b-2f5c-43ed-b690-d88b272d0d70
+		summarizeBy: none
+		sourceColumn: OrganisationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_id
+		dataType: string
+		lineageTag: a7e56e5c-0fb2-4fb7-89f4-29744efcbaf0
+		summarizeBy: none
+		sourceColumn: country_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition lu_store-921e05fd-8802-442d-b44f-7b3d823197b9 = m
+		mode: import
+		queryGroup: 'Reference Data'
+		source =
+				let
+				    Source = Sql.Database("dta-eun-prod-sqlsrv-synapse-01.database.windows.net", "dta-eun-prod-datawarehouse-synapse-01"),
+				    analytics_trans_prod_lu_store = Source{[Schema="analytics_trans_prod",Item="lu_store"]}[Data]
+					, #"Removed Other Columns" = Table.SelectColumns(analytics_trans_prod_lu_store,{"store_id", "site_name", "area_name", "division_name_", "soc_name", "country", "post_code", "opening_date", "closing_date", "sales_organisation_name", "country_id"})
+					, #"Remove Blank Store Numbers" = Table.SelectRows(#"Removed Other Columns", each [store_id] <> null and [store_id] <> "")
+				    , #"Filtered Rows" = Table.SelectRows(#"Remove Blank Store Numbers", each ([division_name_] <> null and [division_name_] <> "CLOSED STORES" and [division_name_] <> "NON TRADING" and [division_name_] <> "NON-STORE TRADING")),
+				    #"Closing Date Filter" = Table.SelectRows(#"Filtered Rows", each [closing_date] > DateTime.LocalNow())
+					, #"Opening Date Filter" = Table.SelectRows(#"Closing Date Filter", each [opening_date] < Date.AddMonths(DateTime.LocalNow(),2))
+					, #"Renamed Columns" = Table.RenameColumns(#"Opening Date Filter",{{"store_id", "StoreID"}, {"site_name", "StoreName"}, {"area_name", "Region"}, {"division_name_", "Division"}, {"soc_name", "ShapeofChain"}, {"country", "Country"}, {"post_code", "PostCode"}, {"opening_date", "OpeningDate"}, {"closing_date", "ClosingDate"}, {"sales_organisation_name", "OrganisationName"}})
+				    , #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"OpeningDate", type date}, {"ClosingDate", type date}, {"StoreID", Int64.Type}, {"StoreName", type text}, {"Region", type text}, {"Division", type text}, {"ShapeofChain", type text}}),
+				    #"Appended Query" = Table.Combine({#"Changed Type", lu_store_additions})
+				in
+				    #"Appended Query"
+
+	annotation PBI_ResultType = Table
+

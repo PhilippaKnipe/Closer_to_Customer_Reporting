@@ -1,0 +1,33 @@
+table 'Experience  bridge'
+	lineageTag: 7fd6251f-7350-4c2f-9ea5-22f046faa7a7
+
+	column StoreManagementExperience
+		dataType: int64
+		formatString: 0
+		lineageTag: dbd383ec-8968-4e6f-b9da-1bfbdf62dd7f
+		summarizeBy: none
+		sourceColumn: StoreManagementExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column YN
+		dataType: string
+		lineageTag: b9723f5b-d013-4dc5-beba-664758343e46
+		summarizeBy: none
+		sourceColumn: YN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Experience  bridge-8ef1b91e-6b6d-4fb6-812d-17eba4222ae6' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUYpMLVaK1YlWMgCy/fKVYmMB", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [StoreManagementExperience = _t, YN = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"StoreManagementExperience", Int64.Type}, {"YN", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

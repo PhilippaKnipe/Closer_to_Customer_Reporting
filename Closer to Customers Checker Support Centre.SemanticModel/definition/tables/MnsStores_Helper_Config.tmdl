@@ -1,0 +1,276 @@
+table MnsStores_Helper_Config
+	lineageTag: bfb99bec-8266-4cd5-9e0b-d19e3c845b54
+
+	column FileSystemObjectType
+		dataType: string
+		lineageTag: 9b6dccd6-bb15-4514-8964-f278264a5943
+		summarizeBy: none
+		sourceColumn: FileSystemObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 94cb4275-d5f4-449d-bcde-cb559548f0fc
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUri
+		dataType: string
+		lineageTag: 64d745c3-0ab4-41db-b77d-c8e42d2ac0d5
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUri
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUrl
+		dataType: string
+		lineageTag: fac5ac5c-c109-457e-a7cf-fc4a8ed01211
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID 2'
+		dataType: string
+		lineageTag: 34753629-47ed-47d9-a025-0548aebad4c5
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContentTypeId
+		dataType: string
+		lineageTag: cd675ede-e0c7-44e6-a43f-7864b84c0655
+		summarizeBy: none
+		sourceColumn: ContentTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: f75e97e2-7304-49b9-9a3f-2a2e4cc464a3
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modified
+		dataType: string
+		lineageTag: fd4a56ee-eb3d-4581-99fc-6e38b635cd77
+		summarizeBy: none
+		sourceColumn: Modified
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created
+		dataType: string
+		lineageTag: 443c5656-2efd-4776-a2b0-04a0a5a1a33d
+		summarizeBy: none
+		sourceColumn: Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column AuthorId
+		dataType: string
+		lineageTag: b0ef13d0-c131-4143-afb0-ceb42209c3f0
+		summarizeBy: none
+		sourceColumn: AuthorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EditorId
+		dataType: string
+		lineageTag: 7e036d79-33ba-4fa7-af40-94d1b37a87f7
+		summarizeBy: none
+		sourceColumn: EditorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OData__UIVersionString
+		dataType: string
+		lineageTag: bea9673c-f82d-40f7-a048-c823b6c617aa
+		summarizeBy: none
+		sourceColumn: OData__UIVersionString
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attachments
+		dataType: string
+		lineageTag: f22e2a5a-6af6-473f-bc91-a9057fe8c820
+		summarizeBy: none
+		sourceColumn: Attachments
+
+		annotation SummarizationSetBy = Automatic
+
+	column GUID
+		dataType: string
+		lineageTag: 65cecdb6-a70d-4c8f-8102-fa3d8877c1a5
+		summarizeBy: none
+		sourceColumn: GUID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceAssetId
+		dataType: string
+		lineageTag: 6f099c3b-b5b1-4b1f-a7a1-cdc7f58331d8
+		summarizeBy: none
+		sourceColumn: ComplianceAssetId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Food_Helper
+		dataType: string
+		lineageTag: 6b2b2104-8272-4e8c-804e-f231667c0bd4
+		summarizeBy: none
+		sourceColumn: Food_Helper
+
+		annotation SummarizationSetBy = Automatic
+
+	column Christmas_Helper
+		dataType: string
+		lineageTag: 121f910f-6e11-432e-903d-ee60b926e4c4
+		summarizeBy: none
+		sourceColumn: Christmas_Helper
+
+		annotation SummarizationSetBy = Automatic
+
+	column Easter_Helper
+		dataType: string
+		lineageTag: dd1d2709-533f-40f0-82c5-36f2b01b00d2
+		summarizeBy: none
+		sourceColumn: Easter_Helper
+
+		annotation SummarizationSetBy = Automatic
+
+	column Christmas_Helper_Capacity
+		dataType: string
+		lineageTag: e37f95b9-4294-415d-91cc-187fb1ffa692
+		summarizeBy: none
+		sourceColumn: Christmas_Helper_Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Food_Helper_Capacity
+		dataType: string
+		lineageTag: 104eb8ac-5c29-497c-9780-db49db2eb368
+		summarizeBy: none
+		sourceColumn: Food_Helper_Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Easter_Helper_Capacity
+		dataType: string
+		lineageTag: 25ac4b69-d4df-49e7-be8b-d174761059f0
+		summarizeBy: none
+		sourceColumn: Easter_Helper_Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fulfillment_Helper
+		dataType: string
+		lineageTag: dbff96f0-f2d4-44a2-8310-464071586f7c
+		summarizeBy: none
+		sourceColumn: Fulfillment_Helper
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fulfillment_Helper_Capacity
+		dataType: string
+		lineageTag: bcc88aaf-d3b0-4adc-9d15-b205af6a900c
+		summarizeBy: none
+		sourceColumn: Fulfillment_Helper_Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store ID'
+		dataType: string
+		lineageTag: eacfec51-1333-4ccd-9432-9f7ccd7d8e68
+		summarizeBy: none
+		sourceColumn: Store ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Name'
+		dataType: string
+		lineageTag: 7a80cac3-9deb-4bd2-8552-4f93467b9d25
+		summarizeBy: none
+		sourceColumn: Store Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTC_Helper
+		dataType: string
+		lineageTag: 3106af09-3c72-4e80-8768-9e515ac173b6
+		summarizeBy: none
+		sourceColumn: CTC_Helper
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTC_Capacity
+		dataType: string
+		lineageTag: 1b527a01-0c29-427b-b1db-5b17b90cce92
+		summarizeBy: none
+		sourceColumn: CTC_Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column HelperStatus
+		dataType: string
+		lineageTag: 4dd94a73-c5e1-4d85-9306-8436c5314712
+		summarizeBy: none
+		sourceColumn: HelperStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Display'
+		dataType: string
+		lineageTag: 0999fedc-e678-4b28-a0d3-408500318582
+		summarizeBy: none
+		sourceColumn: Store Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreID_4Digits
+		dataType: string
+		lineageTag: 826bf01c-8645-421e-a38f-5db9d0a9edc1
+		summarizeBy: none
+		sourceColumn: StoreID_4Digits
+
+		annotation SummarizationSetBy = Automatic
+
+	column AppLink
+		dataType: string
+		lineageTag: 1563bdf3-a043-4778-a038-f29aaecd4eb6
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: AppLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column Custom_Message
+		dataType: string
+		lineageTag: 15c2d389-e392-4fe7-b696-05fd8f320d69
+		summarizeBy: none
+		sourceColumn: Custom_Message
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MnsStores_Helper_Config-dc6a3f8c-798a-4de7-b7a6-32a25db9343b = m
+		mode: import
+		queryGroup: 'Fact Queries'
+		source =
+				let
+				    Source = SharePoint.Tables("https://mnscorp.sharepoint.com/sites/StoreAllys", [Implementation=null, ApiVersion=15]),
+				    #"923ea5cc-f060-41ae-a52e-023678d9cd7e" = Source{[Id="923ea5cc-f060-41ae-a52e-023678d9cd7e"]}[Items],
+				    #"Added Custom" = Table.AddColumn(#"923ea5cc-f060-41ae-a52e-023678d9cd7e", "AppLink", each "https://apps.powerapps.com/play/50e9f4f2-fd0a-4b9c-813d-706179ebeb4a"&"?storeId="&[StoreID_4Digits]),
+				    #"Sorted Rows" = Table.Sort(#"Added Custom",{{"Store ID", Order.Descending}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Sorted Rows",{{"Id", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

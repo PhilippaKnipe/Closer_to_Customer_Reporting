@@ -1,0 +1,5 @@
+role CSO
+	modelPermission: read
+
+	annotation PBI_Id = d3adf1218c714aa291eac2890ef412bb
+

@@ -1,0 +1,406 @@
+table 'Store Visit New'
+	lineageTag: 6529c236-72dc-43da-9ee6-2c0dbcb66ff7
+
+	column Skip
+		dataType: string
+		lineageTag: 67f21c99-d26f-4969-a304-1c44aca2df2b
+		summarizeBy: none
+		sourceColumn: Skip
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'odata.type'
+		dataType: string
+		lineageTag: 71df30f4-6019-4ec7-a102-aa265ceccc2f
+		summarizeBy: none
+		sourceColumn: odata.type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'odata.id'
+		dataType: string
+		lineageTag: b711d4ac-b226-41b4-892f-2b3892f8810a
+		summarizeBy: none
+		sourceColumn: odata.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'odata.etag'
+		dataType: string
+		lineageTag: 28408ee3-39c5-4e5d-9b40-aaeb965997b9
+		summarizeBy: none
+		sourceColumn: odata.etag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'odata.editLink'
+		dataType: string
+		lineageTag: a593e360-4c4f-485d-ab18-ad1c95966239
+		summarizeBy: none
+		sourceColumn: odata.editLink
+
+		annotation SummarizationSetBy = Automatic
+
+	column FileSystemObjectType
+		dataType: string
+		lineageTag: c9985281-8b37-4da0-8608-17c5ef2e1fec
+		summarizeBy: none
+		sourceColumn: FileSystemObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: string
+		lineageTag: 1ffa603f-b315-4df6-a95a-f15d23449388
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUri
+		dataType: string
+		lineageTag: 978d4821-8737-4d45-8a21-9d4a181a7851
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUri
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServerRedirectedEmbedUrl
+		dataType: string
+		lineageTag: 991c6502-85ef-4060-b004-bfa2e7ed0801
+		summarizeBy: none
+		sourceColumn: ServerRedirectedEmbedUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID.1'
+		dataType: string
+		lineageTag: f6a54c05-b662-4766-a027-a7e8ccfc1140
+		summarizeBy: none
+		sourceColumn: ID.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContentTypeId
+		dataType: string
+		lineageTag: e5bb43de-f498-4bd1-b815-8e920b95e8c3
+		summarizeBy: none
+		sourceColumn: ContentTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: b69fb9ee-dec6-436a-b464-ef3dfa1e13a1
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Modified
+		dataType: string
+		lineageTag: c68d8fac-47d7-4de1-83ca-3096eb6bea5f
+		summarizeBy: none
+		sourceColumn: Modified
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created
+		dataType: string
+		lineageTag: b563c0b5-8908-408b-8563-13ef32c119a0
+		summarizeBy: none
+		sourceColumn: Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column AuthorId
+		dataType: string
+		lineageTag: a31c4f85-42e7-44da-a24d-52ff449b686f
+		summarizeBy: none
+		sourceColumn: AuthorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EditorId
+		dataType: string
+		lineageTag: 3d923157-059d-4f1d-a491-c0d07f7605c3
+		summarizeBy: none
+		sourceColumn: EditorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OData__UIVersionString
+		dataType: string
+		lineageTag: c1a9eaf1-3a85-4fdd-86bd-0417dfe45dda
+		summarizeBy: none
+		sourceColumn: OData__UIVersionString
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attachments
+		dataType: string
+		lineageTag: 957d5278-b6ef-4849-99be-013c5200f121
+		summarizeBy: none
+		sourceColumn: Attachments
+
+		annotation SummarizationSetBy = Automatic
+
+	column GUID
+		dataType: string
+		lineageTag: 8b1d3bdb-0d5d-4512-a58d-0a5fb542369a
+		summarizeBy: none
+		sourceColumn: GUID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplianceAssetId
+		dataType: string
+		lineageTag: f6815114-4066-415d-8b32-6b80551f894e
+		summarizeBy: none
+		sourceColumn: ComplianceAssetId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name_x0020_of_x0020_VisitorId
+		dataType: string
+		lineageTag: 1b0c3cfe-6195-4e98-aa7c-d444d0226931
+		summarizeBy: none
+		sourceColumn: Name_x0020_of_x0020_VisitorId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name_x0020_of_x0020_VisitorStringId
+		dataType: string
+		lineageTag: 046d7fa0-9b53-408d-b1de-f899880b1a25
+		summarizeBy: none
+		sourceColumn: Name_x0020_of_x0020_VisitorStringId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Time
+		dataType: string
+		lineageTag: 46458500-7a9a-4d46-9119-b2dbb09d3137
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column Visit_x0020_Date
+		dataType: string
+		lineageTag: a6a82535-69bd-49c0-aa76-eec141eb8a60
+		summarizeBy: none
+		sourceColumn: Visit_x0020_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 2b2f5476-907d-4597-b2af-ecfdc25c6db1
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 1b1bffdc-97af-4ace-a06b-ff657f174f3f
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreName
+		dataType: string
+		lineageTag: 43438b05-8ea0-4c91-b0fe-a46bba0ad297
+		summarizeBy: none
+		sourceColumn: MnS_StoreName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreID
+		dataType: string
+		lineageTag: fb351ac9-3594-4d1b-b7fc-5167c74f6722
+		summarizeBy: none
+		sourceColumn: MnS_StoreID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_VisitorEmail
+		dataType: string
+		lineageTag: 88bf689d-43cf-45a8-aab8-14e6f201a6f0
+		summarizeBy: none
+		sourceColumn: MnS_VisitorEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Helper_x0020_Details
+		dataType: string
+		lineageTag: ab12539c-582d-4638-b9ef-43c69876dc3a
+		summarizeBy: none
+		sourceColumn: Helper_x0020_Details
+
+		annotation SummarizationSetBy = Automatic
+
+	column Helper_x0020_Experience
+		dataType: string
+		lineageTag: a785897e-c750-4209-917a-7ec7144cd84d
+		summarizeBy: none
+		sourceColumn: Helper_x0020_Experience
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_StoreVisit_Attendance
+		dataType: string
+		lineageTag: 318a6509-bb4a-4f22-9ba9-86447e10ed58
+		summarizeBy: none
+		sourceColumn: MnS_StoreVisit_Attendance
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_Store_Region
+		dataType: string
+		lineageTag: e3745922-b388-41f2-9de6-ea3ba185b7df
+		summarizeBy: none
+		sourceColumn: MnS_Store_Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column MnS_Manager_Feedback
+		dataType: string
+		lineageTag: 1a28b2ee-2823-4f8f-a090-ee8d7c12a23b
+		summarizeBy: none
+		sourceColumn: MnS_Manager_Feedback
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreManagementExperience
+		dataType: string
+		lineageTag: ff261ec5-ff53-40fe-8192-d6f1e6596b79
+		summarizeBy: none
+		sourceColumn: StoreManagementExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingType
+		dataType: string
+		lineageTag: fcb9e7df-a04e-4aa6-b906-d596fd511ceb
+		summarizeBy: none
+		sourceColumn: BookingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TillExperience
+		dataType: string
+		lineageTag: 4c0f47c5-4a46-4893-8d4c-06b1a650b904
+		summarizeBy: none
+		sourceColumn: TillExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCOTExperience
+		dataType: string
+		lineageTag: 9fe5e87a-1ee5-4d7a-84f4-8e97bcfda826
+		summarizeBy: none
+		sourceColumn: SCOTExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoneywellExperience
+		dataType: string
+		lineageTag: 7341a5bc-c007-4a36-a28e-c72af09e3c11
+		summarizeBy: none
+		sourceColumn: HoneywellExperience
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorePreferenceAreas
+		dataType: string
+		lineageTag: 686bc164-3e5b-4e7a-85cf-207a496d465d
+		summarizeBy: none
+		sourceColumn: StorePreferenceAreas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Booking_x0020_Reminder
+		dataType: string
+		lineageTag: 08b638f8-6423-48e9-9127-60ec5289b87a
+		summarizeBy: none
+		sourceColumn: Booking_x0020_Reminder
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reminder_x0020_Status
+		dataType: string
+		lineageTag: f8983984-197c-4e95-95f7-6d2ad70fa0d1
+		summarizeBy: none
+		sourceColumn: Reminder_x0020_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Induction
+		dataType: string
+		lineageTag: 5b60b519-9a87-4b2a-aff5-10427ab8006c
+		summarizeBy: none
+		sourceColumn: Induction
+
+		annotation SummarizationSetBy = Automatic
+
+	column OData__ColorTag
+		dataType: string
+		lineageTag: 6cef9ebf-9934-4085-8f74-be9816a819f1
+		summarizeBy: none
+		sourceColumn: OData__ColorTag
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPN
+		dataType: string
+		lineageTag: 713c2f6c-84e4-4f79-9a80-303864f9b105
+		summarizeBy: none
+		sourceColumn: UPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Visit_Date_Adjusted = left('Store Visit New'[Visit_x0020_Date],10)
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6d0ecd5a-7ae2-4248-9d81-b8306e371151
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 7409ab20-9a68-4ab8-994f-1a8e5ca0060e
+			defaultHierarchy: LocalDateTable_fe55d6a9-83bf-4689-9a84-e6a69325a995.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Associated UPN (Look Up)' = LOOKUPVALUE('mnsuk adroot marksandspencer com'[UPN],'mnsuk adroot marksandspencer com'[UPN],'Store Visit New'[MnS_VisitorEmail])
+		dataType: string
+		lineageTag: 3d3b60e4-0220-4e9b-a7b1-9e77a66ae6c5
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Store Visit New' = m
+		mode: import
+		queryGroup: PL
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"87ed75db-1bfc-49fc-bd92-d64dd70202a7" = Workspaces{[workspaceId="87ed75db-1bfc-49fc-bd92-d64dd70202a7"]}[Data],
+				    #"3585152f-e541-4694-82ae-1518f1253948" = #"87ed75db-1bfc-49fc-bd92-d64dd70202a7"{[dataflowId="3585152f-e541-4694-82ae-1518f1253948"]}[Data],
+				    #"Store Visit New_" = #"3585152f-e541-4694-82ae-1518f1253948"{[entity="Store Visit New",version=""]}[Data],
+				    #"Removed Duplicates" = Table.Distinct(#"Store Visit New_", {"odata.editLink"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

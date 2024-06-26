@@ -1,0 +1,174 @@
+table pl_ctc_colleagues
+	lineageTag: b9aeb29a-1593-428a-a04d-d7f472a13b97
+
+	column payroll_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dc38fa2-3e6f-4094-88c4-be23af3c889e
+		summarizeBy: none
+		sourceColumn: payroll_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column job_title
+		dataType: string
+		lineageTag: 13c402d2-e793-4973-a7d6-02e105287473
+		summarizeBy: none
+		sourceColumn: job_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 5398ad5e-8861-4efe-902e-bacaf5dca4fc
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeName
+		dataType: string
+		lineageTag: 459f2bf0-fd18-4444-b842-5c08ce21ffa7
+		summarizeBy: none
+		sourceColumn: EmployeeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeWorkEmail
+		dataType: string
+		lineageTag: 6d5f9cb6-b641-4382-b763-01fff8df0f47
+		summarizeBy: none
+		sourceColumn: EmployeeWorkEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessUnitDescription
+		dataType: string
+		lineageTag: d681f206-1522-4c66-9bb7-ed07777f494b
+		summarizeBy: none
+		sourceColumn: BusinessUnitDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level3
+		dataType: string
+		lineageTag: 1311c96c-37ca-40d2-85b3-02b7a293fdb2
+		summarizeBy: none
+		sourceColumn: Level3
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationDescription
+		dataType: string
+		lineageTag: f60d9d40-4d31-4c62-a4e3-1b5397ad6897
+		summarizeBy: none
+		sourceColumn: LocationDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupervisorID
+		dataType: int64
+		formatString: 0
+		lineageTag: aabc98db-370b-4e53-9759-e152326c0e5b
+		summarizeBy: none
+		sourceColumn: SupervisorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column supervisor_id_lm
+		dataType: int64
+		formatString: 0
+		lineageTag: 2eebe435-b07f-494e-891b-5802f69bba69
+		summarizeBy: none
+		sourceColumn: supervisor_id_lm
+
+		annotation SummarizationSetBy = Automatic
+
+	column job_title_lm
+		dataType: string
+		lineageTag: 1521876a-b15d-4e10-b8d3-524f41855737
+		summarizeBy: none
+		sourceColumn: job_title_lm
+
+		annotation SummarizationSetBy = Automatic
+
+	column dept_lm
+		dataType: string
+		lineageTag: 30c17bdc-571e-4d73-9947-8b73a87e54fe
+		summarizeBy: none
+		sourceColumn: dept_lm
+
+		annotation SummarizationSetBy = Automatic
+
+	column LM
+		dataType: string
+		lineageTag: d0c0de4d-d9a6-4041-a037-e36dee9ff330
+		summarizeBy: none
+		sourceColumn: LM
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_LM
+		dataType: string
+		lineageTag: 535e8808-4d09-47de-9ee9-97b4a24d9202
+		summarizeBy: none
+		sourceColumn: email_LM
+
+		annotation SummarizationSetBy = Automatic
+
+	column BU_LM
+		dataType: string
+		lineageTag: 8abdfa1f-7962-4f55-b58d-a036e041bc67
+		summarizeBy: none
+		sourceColumn: BU_LM
+
+		annotation SummarizationSetBy = Automatic
+
+	column L3_LM
+		dataType: string
+		lineageTag: 05e98375-4d92-478a-891b-88d81c80f064
+		summarizeBy: none
+		sourceColumn: L3_LM
+
+		annotation SummarizationSetBy = Automatic
+
+	column LD_LM
+		dataType: string
+		lineageTag: b0976a4d-77d3-422b-923f-04b30d0da08c
+		summarizeBy: none
+		sourceColumn: LD_LM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Length = TRIM(pl_ctc_colleagues[EmployeeWorkEmail])
+		dataType: string
+		lineageTag: 41d60ece-d540-43af-8771-bfe5d78f2bd6
+		summarizeBy: none
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department Join' = related('Closer to Customer Department Details'[Department])
+		lineageTag: 63f35762-9a81-48dc-ab89-3b9b2463aaeb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pl_ctc_colleagues = m
+		mode: import
+		queryGroup: PL
+		source =
+				let
+				    Source = Databricks.Catalogs("northeurope.azuredatabricks.net", "sql/protocolv1/o/6958043299465649/0216-093651-pp19l0wr", [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+				    hive_metastore_Database = Source{[Name="hive_metastore",Kind="Database"]}[Data],
+				    retail_azlab_prod_Schema = hive_metastore_Database{[Name="retail_azlab_prod",Kind="Schema"]}[Data],
+				    pl_ctc_colleagues_Table = retail_azlab_prod_Schema{[Name="pl_ctc_colleagues",Kind="Table"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(pl_ctc_colleagues_Table,"@marks-and-spencer.com","@mnscorp.net",Replacer.ReplaceText,{"EmployeeWorkEmail"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value", each ([EmployeeWorkEmail] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
