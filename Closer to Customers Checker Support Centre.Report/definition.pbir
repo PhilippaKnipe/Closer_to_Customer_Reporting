@@ -1,9 +1,0 @@
-{
-  "version": "4.0",
-  "datasetReference": {
-    "byPath": {
-      "path": "../Closer to Customers Checker Support Centre.SemanticModel"
-    },
-    "byConnection": null
-  }
-}
